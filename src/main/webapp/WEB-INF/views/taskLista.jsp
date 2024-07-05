@@ -59,6 +59,9 @@
             top: 1rem;
             right: 1rem;
         }
+        .icon {
+            color: #11131c;
+        }
     </style>
 </head>
 <body>
@@ -168,14 +171,17 @@
                     <p class="card-text"><%= task.getDescription() %></p>
                     <span class="card-status"><%= task.getStatus() %></span>
                     <div class="dropdown card-menu">
-                        <button class="btn btn-link dropdown-toggle" type="button" id="dropdownMenuButton<%= task.getId()%>" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa fa-ellipsis-v"></i>
+                        <button class="btn btn-link dropdown-toggle" type="button"
+                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-ellipsis-v icon"></i>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton<%= task.getId() %>">
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <li>
                                 <a class="dropdown-item" href="taskEditar.do?id=<%= task.getId() %>">Editar</a>
                             </li>
-                            <li><a class="dropdown-item" href="taskEliminar.do?id=<%= task.getId() %>">Eliminar</a></li>
+                            <li>
+                                <a class="dropdown-item" href="taskEliminar.do?id=<%= task.getId() %>">Eliminar</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
