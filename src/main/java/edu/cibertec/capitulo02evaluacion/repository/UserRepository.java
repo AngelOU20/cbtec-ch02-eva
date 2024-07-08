@@ -15,7 +15,6 @@ public class UserRepository implements IUserRepository {
         users.add(new User("jane", "jane@gmail.com", "ord456"));
     }
 
-
     @Override
     public User findByUsername(String username) {
         for (User user: users) {
