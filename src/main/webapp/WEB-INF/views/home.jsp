@@ -72,7 +72,6 @@
 </nav>
 
 <section class="container">
-    <h1 class="text-center">Página de Inicio</h1>
     <img src="https://www.tutorialspoint.com/bootstrap/images/slide1.png"
          class="img-fluid d-block w-100" alt="image">
 </section>
