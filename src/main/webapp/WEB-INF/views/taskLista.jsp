@@ -111,10 +111,11 @@
 </nav>
 
 <section class="container">
-    <h1 class="mb-4">Lista de tareas</h1>
+    <h1 class="text-center mb-4">Lista de tareas</h1>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#createTaskModal">
+    <button type="button" class="btn btn-primary px-2 mb-4"
+            data-bs-toggle="modal" data-bs-target="#createTaskModal">
         Crear tarea
     </button>
 
@@ -177,10 +178,17 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <li>
-                                <a class="dropdown-item" href="taskEditar.do?id=<%= task.getId() %>">Editar</a>
+                                <a class="dropdown-item"
+                                   href="taskVer.do?id=<%= task.getId() %>">Ver
+                                </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="taskEliminar.do?id=<%= task.getId() %>">Eliminar</a>
+                                <a class="dropdown-item"
+                                   href="taskEditar.do?id=<%= task.getId() %>">Editar</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item"
+                                   href="taskEliminar.do?id=<%= task.getId() %>">Eliminar</a>
                             </li>
                         </ul>
                     </div>
