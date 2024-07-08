@@ -32,6 +32,12 @@
         .form-container .btn {
             margin-top: 20px;
         }
+        .container-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.2rem;
+        }
     </style>
 </head>
 <body>
@@ -75,40 +81,39 @@
 
 <section class="container">
     <div class="form-container">
+        <h1 class="text-center mb-4">Editar Tarea</h1>
+        <mvc:form id="editTaskForm" cssClass="register-form" modelAttribute="taskBean"
+                  action="taskActualizar.do" method="post">
+            <mvc:hidden path="id" />
+            <div class="mb-3">
+                <mvc:label path="title" cssClass="form-label">Título</mvc:label>
+                <mvc:input path="title" type="text" cssClass="form-control" id="taskTitle" />
+                <mvc:errors path="title" cssClass="text-danger text-uppercase mt-2" />
+            </div>
+            <div class="mb-3">
+                <mvc:label path="description" cssClass="form-label">Descripción</mvc:label>
+                <mvc:textarea path="description" cssClass="form-control" id="taskDescription" rows="3" />
+                <mvc:errors path="description" cssClass="text-danger text-uppercase mt-2" />
+            </div>
+            <div class="mb-3">
+                <mvc:label path="status" cssClass="form-label">Estado</mvc:label>
+                <mvc:select path="status" cssClass="form-select" id="taskStatus">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="En progreso">En progreso</option>
+                    <option value="Completada">Completada</option>
+                </mvc:select>
+                <mvc:errors path="status" cssClass="text-danger text-uppercase mt-2" />
+            </div>
+            <div class="container-buttons">
+                <a href="taskMostrar.do" class="btn btn-secondary w-100">
+                    <i class="fas fa-arrow-left"></i> Regresar
+                </a>
 
-
-    <h1 class="mb-4">Editar Tarea</h1>
-    <mvc:form id="editTaskForm" cssClass="register-form" modelAttribute="taskBean"
-              action="taskActualizar.do" method="post">
-        <mvc:hidden path="id" />
-        <div class="mb-3">
-            <mvc:label path="title" cssClass="form-label">Título</mvc:label>
-            <mvc:input path="title" type="text" cssClass="form-control" id="taskTitle" />
-            <mvc:errors path="title" cssClass="text-danger text-uppercase mt-2" />
-        </div>
-        <div class="mb-3">
-            <mvc:label path="description" cssClass="form-label">Descripción</mvc:label>
-            <mvc:textarea path="description" cssClass="form-control" id="taskDescription" rows="3" />
-            <mvc:errors path="description" cssClass="text-danger text-uppercase mt-2" />
-        </div>
-        <div class="mb-3">
-            <mvc:label path="status" cssClass="form-label">Estado</mvc:label>
-            <mvc:select path="status" cssClass="form-select" id="taskStatus">
-                <option value="Pendiente">Pendiente</option>
-                <option value="En progreso">En progreso</option>
-                <option value="Completada">Completada</option>
-            </mvc:select>
-            <mvc:errors path="status" cssClass="text-danger text-uppercase mt-2" />
-        </div>
-        <div class="d-flex align-items-center justify-content-between">
-            <button type="submit" class="btn btn-primary">
-                <i class="fas fa-save"></i> Actualizar
-            </button>
-            <a href="taskMostrar.do" class="btn btn-secondary">
-                <i class="fas fa-arrow-left"></i> Regresar
-            </a>
-        </div>
-    </mvc:form>
+                <button type="submit" class="btn btn-primary w-100">
+                    <i class="fas fa-save"></i> Actualizar
+                </button>
+            </div>
+        </mvc:form>
     </div>
 </section>
 
