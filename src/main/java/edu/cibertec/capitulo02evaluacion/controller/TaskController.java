@@ -4,6 +4,7 @@ import edu.cibertec.capitulo02evaluacion.model.Task;
 import edu.cibertec.capitulo02evaluacion.service.task.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+  import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -67,6 +68,12 @@ public class TaskController {
         return mv;
     }
 
+    @RequestMapping("/taskVer")
+    public String taskView(@RequestParam("id") int id, Model model) {
+        Task task = taskService.getTaskById(id);
+        model.addAttribute("task", task);
+        return "taskVer";
+    }
 
     @RequestMapping("taskEliminar")
     public ModelAndView taskDelete(@RequestParam("id") int id) {
