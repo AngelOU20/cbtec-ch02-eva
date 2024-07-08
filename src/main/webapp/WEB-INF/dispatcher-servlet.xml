@@ -20,9 +20,11 @@
     <aop:config>
         <aop:aspect id="loggingAspect" ref="logAspect">
             <aop:pointcut id="miBean"
-                          expression="execution(* edu.cibertec.capitulo02evaluacion.controller.*.*(..))"/>
+                          expression="execution(* edu.cibertec.capitulo02evaluacion.controller.TaskController.*(..))"/>
             <aop:before method="actionBefore" pointcut-ref="miBean"/>
             <aop:after method="actionAfter" pointcut-ref="miBean"/>
+
+            <aop:around method="actionAround" pointcut-ref="miBean"/>
         </aop:aspect>
     </aop:config>
 
