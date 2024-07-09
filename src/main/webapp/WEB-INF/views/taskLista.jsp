@@ -37,8 +37,6 @@
             box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
         }
         .card-status {
-            background-color: #d4edda;
-            color: #155724;
             border-radius: 0.5rem;
             padding: 0.25rem 0.75rem;
             display: inline-block;
@@ -46,6 +44,18 @@
             position: absolute;
             bottom: 1rem;
             right: 1rem;
+        }
+        .status-pendiente {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status-enprogreso {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+        .status-completada {
+            background-color: #d4edda;
+            color: #155724;
         }
         .dropdown-menu-right {
             right: 0;
@@ -170,7 +180,9 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= task.getTitle() %></h5>
                     <p class="card-text"><%= task.getDescription() %></p>
-                    <span class="card-status"><%= task.getStatus() %></span>
+                    <span class="<%= task.getStatus().equals("Pendiente") ? "status-pendiente" : task.getStatus().equals("En progreso") ? "status-enprogreso" : "status-completada" %> card-status">
+                        <%= task.getStatus() %>
+                    </span>
                     <div class="dropdown card-menu">
                         <button class="btn btn-link dropdown-toggle" type="button"
                                 id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
